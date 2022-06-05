@@ -54,13 +54,10 @@ const TextBox = () => {
     if (lastInputChar === alpha) {
       const arr = alphabet[Math.floor(Math.random() * alphabet.length)];
       setAlpha(arr);
+      setCounter(counter + 1);
     } else if (lastInputChar !== alpha) {
       setPenaltyCounter(penaltyCounter + 1);
     }
-
-    const arr = alphabet[Math.floor(Math.random() * alphabet.length)];
-    setAlpha(arr);
-    setCounter(counter + 1);
 
     if (counter === 20) {
       setPlayTime(parseFloat(timer) + penaltyCounter * 0.5);
