@@ -1,0 +1,71 @@
+.alphabet-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5% auto;
+  width: 90%;
+}
+
+.alphabet-text-field {
+  height: 70%;
+}
+
+.alphabet-text-field input {
+  background: white;
+  color: #2b9348;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.css-1pw81iq-MuiInputBase-root-MuiFilledInput-root {
+  background: white !important;
+  height: 100%;
+}
+
+.heading-box {
+  margin: 0px auto;
+  width: 90%;
+}
+
+.heading-text {
+  color: #ffffff;
+  margin: 2px auto;
+}
+
+input {
+  padding: 0px 2vmin !important;
+  text-align: center;
+}
+
+.keyboard-box {
+  align-items: stretch;
+  background: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5% 0px;
+}
+
+.reset-btn {
+  background: #ff006e !important;
+  border-radius: 0px !important;
+  color: white !important;
+  min-width: 20% !important;
+  text-transform: capitalize !important;
+}
+
+.text-field {
+  width: 100%;
+}
+
+.timer-box {
+  margin: 2px auto;
+  width: 90%;
+}
+
+.timer-text {
+  color: #ffffff;
+  margin: 2px auto;
+}
