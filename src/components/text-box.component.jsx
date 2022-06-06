@@ -65,19 +65,20 @@ const TextBox = () => {
       setPlayTime(parseFloat(timer) + penaltyCounter * 0.5);
       localStorage.setItem("currentTime",JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5));
 
-      if (bestTime === null) {
-        localStorage.setItem("bestTime", JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5));
+      if (
+        bestTime === null ||
+        parseFloat(timer) + penaltyCounter * 0.5 < parseFloat(bestTime)
+      ) {
+        localStorage.setItem(
+          "bestTime",
+          JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5)
+        );
         setBestTime(parseFloat(timer) + penaltyCounter * 0.5);
         setMessage("Success!");
-      } 
-      
-      else if ( parseFloat(timer) + penaltyCounter * 0.5 < parseFloat(bestTime)) {
-        localStorage.setItem("bestTime",JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5));
-        setBestTime(parseFloat(timer) + penaltyCounter * 0.5);
-        setMessage("Success!");
-      } 
-      
-      else if ( parseFloat(timer) + penaltyCounter * 0.5 > parseFloat(bestTime)) {
+      } else if (
+        parseFloat(timer) + penaltyCounter * 0.5 >
+        parseFloat(bestTime)
+      ) {
         setMessage("Failure!");
       }
     }
