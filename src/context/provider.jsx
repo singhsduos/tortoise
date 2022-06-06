@@ -9,6 +9,8 @@ const Provider = (props) => {
   const [msg, setMessage] = React.useState("");
   const [playTime, setPlayTime] = React.useState("");
   const [penaltyCounter, setPenaltyCounter] = React.useState(0);
+  const [running, setRunning] = React.useState(false);
+  const [startTime, setStartTime] = React.useState(Date.now());
   const [timer, setTimer] = React.useState(0.0);
 
   return (
@@ -21,16 +23,20 @@ const Provider = (props) => {
         msg,
         playTime,
         penaltyCounter,
+        running,
+        startTime,
         timer,
         setAlpha: (alpha) => setAlpha(alpha),
         setBestTime: (bestTime) => setBestTime(bestTime),
         setCounter: (counter) => setCounter(counter),
-        setTimer: (timer) => setTimer(timer),
         setInput: (input) => setInput(input),
         setMessage: (msg) => setMessage(msg),
         setPlayTime: (playTime) => setPlayTime(playTime),
+        setRunning: (running) => setRunning(running),
         setPenaltyCounter: (penaltyCounter) =>
           setPenaltyCounter(penaltyCounter),
+        setStartTime: (startTime) => setStartTime(startTime),
+        setTimer: (timer) => setTimer(timer),
       }}
     >
       {props.children}

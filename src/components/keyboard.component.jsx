@@ -3,14 +3,31 @@ import Context from "../context/context-api";
 import React from "react";
 
 const Keyboard = () => {
-  const { input, setInput, counter } = React.useContext(Context);
+  const {
+    input,
+    counter,
+    running,
+    setCounter,
+    setInput,
+    setPenaltyCounter,
+    setPlayTime,
+    setRunning,
+    setStartTime,
+    setTimer,
+  } = React.useContext(Context);
 
   const handleChange = (e) => {
     setInput(e.target.value.toUpperCase());
   };
 
-  const clearInput = () => {
+  const resetGame = () => {
     setInput("");
+    setTimer(0);
+    setCounter(0);
+    setPlayTime(0);
+    setPenaltyCounter(0);
+    setRunning(!running);
+    setStartTime(Date.now());
   };
 
   return (
@@ -27,11 +44,7 @@ const Keyboard = () => {
         disabled={counter > 20 ? true : false}
       />
 
-      <Button
-        className="reset-btn"
-        onClick={clearInput}
-        disabled={counter > 20 ? true : false}
-      >
+      <Button className="reset-btn" onClick={resetGame}>
         Reset
       </Button>
     </Box>

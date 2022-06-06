@@ -3,13 +3,19 @@ import Context from "../context/context-api";
 import React from "react";
 
 const TimerBox = () => {
-  const { timer, setTimer, counter, playTime, bestTime, setBestTime } =
-    React.useContext(Context);
+  const {
+    bestTime,
+    counter,
+    playTime,
+    running,
+    setBestTime,
+    startTime,
+    setTimer,
+    timer,
+  } = React.useContext(Context);
 
   React.useEffect(() => {
-    let startTime = Date.now();
-
-    window.setInterval(() => {
+    let interval = setInterval(() => {
       let elapsedTime = Date.now() - startTime;
       let net = (elapsedTime / 1000).toFixed(3);
       setTimer(net);
@@ -19,7 +25,9 @@ const TimerBox = () => {
     if (getBestTime !== null) {
       setBestTime(getBestTime);
     }
-  }, []);
+
+    return () => clearInterval(interval);
+  }, [running]);
 
   return (
     <Box className="timer-box">

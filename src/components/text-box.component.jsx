@@ -35,11 +35,11 @@ const TextBox = () => {
 
   const {
     alpha,
-    setAlpha,
-    input,
-    timer,
-    msg,
     counter,
+    input,
+    msg,
+    timer,
+    setAlpha,
     setCounter,
     setPlayTime,
     penaltyCounter,
@@ -70,25 +70,17 @@ const TextBox = () => {
     if (counter === 20) {
       const bestTime = localStorage.getItem("bestTime");
       if (bestTime === null) {
-        localStorage.setItem(
-          "bestTime",
-          JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5)
-        );
+        localStorage.setItem("bestTime",JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5));
         setBestTime(parseFloat(timer) + penaltyCounter * 0.5);
         setMessage("Success!");
       } else if (
-        parseFloat(timer) + penaltyCounter * 0.5 <
-        parseFloat(bestTime)
+        parseFloat(timer) + penaltyCounter * 0.5 < parseFloat(bestTime)
       ) {
-        localStorage.setItem(
-          "bestTime",
-          JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5)
-        );
+        localStorage.setItem("bestTime",JSON.stringify(parseFloat(timer) + penaltyCounter * 0.5));
         setBestTime(parseFloat(timer) + penaltyCounter * 0.5);
         setMessage("Success!");
       } else if (
-        parseFloat(timer) + penaltyCounter * 0.5 >
-        parseFloat(bestTime)
+        parseFloat(timer) + penaltyCounter * 0.5 > parseFloat(bestTime)
       ) {
         setMessage("Failure!");
       }
